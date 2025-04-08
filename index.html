@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerador de Roteiros TikTok</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-sans">
+  <div class="max-w-2xl mx-auto p-6">
+
+    <!-- Tela 1: Boas-vindas -->
+    <div id="tela1" class="text-center space-y-4">
+      <h1 class="text-3xl font-bold">Crie seu roteiro de TikTok em segundos</h1>
+      <p class="text-gray-600">Com base nas tendências da Shopee e seu estilo de conteúdo</p>
+      <button onclick="irParaTela2()" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700">Começar agora</button>
+    </div>
+
+    <!-- Tela 2: Escolha de Tema -->
+    <div id="tela2" class="hidden space-y-4">
+      <h2 class="text-2xl font-semibold text-center">Sobre o que é o vídeo de hoje?</h2>
+      <div class="grid grid-cols-2 gap-4">
+        <button class="tema-btn">Produtos virais da semana</button>
+        <button class="tema-btn">Achadinhos até R$50</button>
+        <button class="tema-btn">Gadgets que viralizaram</button>
+        <button class="tema-btn">Coisas úteis para casa</button>
+        <button class="tema-btn">Beleza e skincare</button>
+        <button class="tema-btn">Moda e estilo</button>
+        <button class="tema-btn">Vida de casal</button>
+        <input type="text" placeholder="Outro tema..." class="col-span-2 p-2 border rounded">
+      </div>
+      <button onclick="irParaTela3()" class="bg-blue-600 text-white px-4 py-2 rounded">Avançar</button>
+    </div>
+
+    <!-- Tela 3: Estilo do roteiro -->
+    <div id="tela3" class="hidden space-y-4">
+      <h2 class="text-2xl font-semibold text-center">Como você quer que seja o roteiro?</h2>
+
+      <div>
+        <label class="block font-medium">Tom de voz:</label>
+        <select class="w-full p-2 border rounded">
+          <option>Engraçado</option>
+          <option>Direto e objetivo</option>
+          <option>Review técnico</option>
+          <option>Storytelling</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="block font-medium">Tempo do vídeo:</label>
+        <select class="w-full p-2 border rounded">
+          <option>15 segundos</option>
+          <option>30 segundos</option>
+          <option>60 segundos</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="block font-medium">Público-alvo:</label>
+        <select class="w-full p-2 border rounded">
+          <option>Feminino</option>
+          <option>Masculino</option>
+          <option>Neutro</option>
+          <option>Jovem</option>
+          <option>Adulto</option>
+        </select>
+      </div>
+
+      <button onclick="mostrarRoteiro()" class="bg-blue-600 text-white px-4 py-2 rounded">Gerar roteiro</button>
+    </div>
+
+    <!-- Tela 4: Resultado -->
+    <div id="tela4" class="hidden space-y-4">
+      <h2 class="text-2xl font-semibold text-center">Seu roteiro está pronto!</h2>
+      <div class="bg-white p-4 rounded shadow">
+        <p><strong>[INTRO]</strong> Você não vai acreditar nesse achado da Shopee!</p>
+        <p><strong>[APRESENTAÇÃO]</strong> Esse gadget custa menos de R$50 e resolve um problemão do dia a dia.</p>
+        <p><strong>[FUNCIONALIDADE]</strong> Ele é compacto, fácil de usar e super eficiente.</p>
+        <p><strong>[CTA]</strong> Tá no link da bio! Corre antes que acabe!</p>
+      </div>
+      <div class="flex gap-2">
+        <button class="bg-gray-200 px-4 py-2 rounded">Copiar</button>
+        <button class="bg-gray-200 px-4 py-2 rounded">Baixar .TXT</button>
+        <button onclick="reiniciar()" class="bg-blue-600 text-white px-4 py-2 rounded">Criar novo roteiro</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function irParaTela2() {
+      document.getElementById('tela1').classList.add('hidden');
+      document.getElementById('tela2').classList.remove('hidden');
+    }
+
+    function irParaTela3() {
+      document.getElementById('tela2').classList.add('hidden');
+      document.getElementById('tela3').classList.remove('hidden');
+    }
+
+    function mostrarRoteiro() {
+      document.getElementById('tela3').classList.add('hidden');
+      document.getElementById('tela4').classList.remove('hidden');
+    }
+
+    function reiniciar() {
+      document.getElementById('tela4').classList.add('hidden');
+      document.getElementById('tela1').classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
